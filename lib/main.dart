@@ -32,12 +32,14 @@ class MyApp extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: BlocProvider(
-          create: (context) => CounterBloc(), child: _blocCounterPage()),
+      home: _blocCounterPage()
+      // home: _standardCounterPage()
     );
   }
 
-  Widget _blocCounterPage() => CounterPage();
+  Widget _blocCounterPage() =>
+      BlocProvider(create: (context) => CounterBloc(),
+                   child:  CounterPage());
 
-  Widget _standardCounterPage() => MyHomePage(title: 'Flutter Demo Home Page!');
+  Widget _standardCounterPage() => MyHomePage(title: 'Flutter Demo Home Page!!');
 }
